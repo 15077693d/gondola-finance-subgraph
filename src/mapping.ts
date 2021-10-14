@@ -15,12 +15,16 @@ import {
 export function handleDeposit(event: DepositContract): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = Deposit.load(event.transaction.from.toHex());
+  let entity = Deposit.load(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  );
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (!entity) {
-    entity = new Deposit(event.transaction.from.toHex());
+    entity = new Deposit(
+      event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+    );
   }
 
   // Entity fields can be set based on event parameters
@@ -38,12 +42,16 @@ export function handleEmergencyWithdraw(
 ): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = EmergencyWithdraw.load(event.transaction.from.toHex());
+  let entity = EmergencyWithdraw.load(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  );
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (!entity) {
-    entity = new EmergencyWithdraw(event.transaction.from.toHex());
+    entity = new EmergencyWithdraw(
+      event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+    );
   }
 
   // Entity fields can be set based on event parameters
@@ -61,12 +69,16 @@ export function handleOwnershipTransferred(
 ): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = OwnershipTransferred.load(event.transaction.from.toHex());
+  let entity = OwnershipTransferred.load(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  );
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (!entity) {
-    entity = new OwnershipTransferred(event.transaction.from.toHex());
+    entity = new OwnershipTransferred(
+      event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+    );
   }
 
   // Entity fields can be set based on event parameters
@@ -81,12 +93,16 @@ export function handleOwnershipTransferred(
 export function handleWithdraw(event: WithdrawContract): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = Withdraw.load(event.transaction.from.toHex());
+  let entity = Withdraw.load(
+    event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+  );
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (!entity) {
-    entity = new Withdraw(event.transaction.from.toHex());
+    entity = new Withdraw(
+      event.transaction.hash.toHex() + "-" + event.logIndex.toString()
+    );
   }
 
   // Entity fields can be set based on event parameters
